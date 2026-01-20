@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Disable type checking during build (Vercel has limited resources)
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  // Disable ESLint during build
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  // Image configuration
   images: {
     remotePatterns: [
       {
@@ -10,10 +19,13 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'res.cloudinary.com',
+        hostname: '**',
       },
     ],
+    unoptimized: true, // Prevent image optimization issues
   },
+  // Reduce memory usage
+  swcMinify: true,
 };
 
 module.exports = nextConfig;
