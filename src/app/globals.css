@@ -47,7 +47,8 @@
   }
 
   .dropdown {
-    @apply absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-stone-200 py-2 z-50 animate-scale-in;
+    @apply absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-stone-200 py-2 z-50;
+    animation: scaleIn 0.2s ease-out;
   }
 
   .dropdown-item {
@@ -59,7 +60,8 @@
   }
 
   .page-header {
-    @apply mb-8 animate-slide-up;
+    @apply mb-8;
+    animation: slideUp 0.5s ease-out;
   }
 
   .page-title {
@@ -71,6 +73,36 @@
   }
 }
 
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-stone-900 via-stone-700 to-stone-900 bg-clip-text text-transparent;
+  }
+}
+
+/* Custom animations */
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -88,6 +120,7 @@
   background: #78716c;
 }
 
+/* Masonry grid */
 .masonry-grid {
   display: flex;
   margin-left: -16px;
@@ -103,14 +136,12 @@
   margin-bottom: 16px;
 }
 
-.gradient-text {
-  @apply bg-gradient-to-r from-stone-900 via-stone-700 to-stone-900 bg-clip-text text-transparent;
-}
-
+/* Selection */
 ::selection {
   @apply bg-stone-900 text-white;
 }
 
+/* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
