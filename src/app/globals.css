@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-playfair: 'Playfair Display', Georgia, serif;
+  }
+
+  * {
+    @apply border-stone-200;
+  }
+
+  body {
+    @apply bg-stone-50 text-stone-900 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-stone-900 text-white hover:bg-stone-800 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-stone-900 border-2 border-stone-900 hover:bg-stone-50 active:scale-95;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 border-2 border-stone-200 rounded-xl focus:border-stone-900 focus:ring-4 focus:ring-stone-900/10 focus:outline-none transition-all duration-200;
+  }
+
+  .spinner {
+    @apply w-12 h-12 border-4 border-stone-200 border-t-stone-900 rounded-full animate-spin;
+  }
+
+  .dropdown {
+    @apply absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-stone-200 py-2 z-50 animate-scale-in;
+  }
+
+  .dropdown-item {
+    @apply block w-full text-left px-4 py-2 text-stone-700 hover:bg-stone-50 transition-colors;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .page-header {
+    @apply mb-8 animate-slide-up;
+  }
+
+  .page-title {
+    @apply text-4xl md:text-5xl font-display font-bold mb-2 tracking-tight;
+  }
+
+  .page-subtitle {
+    @apply text-lg text-stone-600;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a8a29e;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #78716c;
+}
+
+.masonry-grid {
+  display: flex;
+  margin-left: -16px;
+  width: auto;
+}
+
+.masonry-grid_column {
+  padding-left: 16px;
+  background-clip: padding-box;
+}
+
+.masonry-grid_column > div {
+  margin-bottom: 16px;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-stone-900 via-stone-700 to-stone-900 bg-clip-text text-transparent;
+}
+
+::selection {
+  @apply bg-stone-900 text-white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
